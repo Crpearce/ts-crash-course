@@ -1,10 +1,23 @@
 import './App.css';
-import Header from './Header';
+import { useState } from 'react'
+import List from './components/List/List.component';
+
+interface IState {
+  people: {
+    name: string
+    age: number
+    url: string
+    notes? : string
+  }[]
+}
 
 function App() {
+  const [people, setPeople] = useState<IState["people"]>([])
+
   return (
     <div className="App">
-      <Header title='Hello World' />
+      <h1>People Invited to my Party</h1>
+      <List people={people}/>
     </div>
   );
 }
